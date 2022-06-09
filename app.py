@@ -1,10 +1,11 @@
-"""An AWS Python Pulumi program"""
+from flask import Flask
 
-import pulumi
-from pulumi_aws import s3
+app = Flask(__name__)
 
-# Create an AWS resource (S3 Bucket)
-bucket = s3.Bucket('my-bucket')
+@app.route('/')
+def hello_world():
+    return 'Hello World'
 
-# Export the name of the bucket
-pulumi.export('bucket_name', bucket.id)
+if __name__ == '__main__':
+
+    app.run
