@@ -1,3 +1,4 @@
+from crypt import methods
 import os
 from flask import Flask, render_template
 
@@ -16,3 +17,18 @@ def create_app():
             PROJECT_NAME="PaaS",
             PULIMI_ORG=os.environ.get("PULUMI_ORG"),
     )
+
+
+    @app.route("/", methods=["GET"])
+    def index():
+        return render_template("index.html")
+
+    import sites 
+
+    app.register_blueprint(sites.bp)
+
+    import virtual_machines
+
+    app.register_blueprint(virtual_machines.bp)
+
+    return app
