@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<ul class="nav nav-pills">
+    <li class="nav-item fs-6"> <a href="{{ url_for("sites.list_sites") }}" class="nav-link">Back to site directory</a></li>
+</ul>
+{% endblock %}
+
+{% block header %}
+    {% block title  %}Create new static site{% endblock %}
+{% endblock %}
+
+{% block content %}
+<section class="p-2">
+    <form method="post">
+        <div class="mb-3">
+            <label for="site-id" class="form-label">Name</label>
+            <input type="text" class="form-control" name="site-id" id="site-id" aria-describedby="nameHelp" required>
+        </div>
+
+    </form>
+
+</section>
