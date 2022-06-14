@@ -21,7 +21,7 @@
         <div class="mb-3">
             <label for="vw-id" class="form-label">Instance Type</label>
             <select name="instance_type" class="form-control" id="instance_type">
-                {% for instance_type in instance_type %}
+                {% for instance_type in instance_types %}
                 <option value="{{ instance_type }}" {% if instance_type == curr_instance_type %} selected {% endif %}>
                     {{instance_type}}
                 </option>
