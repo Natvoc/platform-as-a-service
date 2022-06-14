@@ -2,6 +2,36 @@
 
 {% block nav %}
     <ul class="nav nav-pills">
-        <li class="nav-item fs-6"> <a href=" {{ url_for("virtual_machine.list_vms") }}" class="nav-link">Back to Virtual</a></li>
-
+        <li class="nav-item fs-6"> <a href=" {{ url_for("virtual_machines.list_vms") }}" class="nav-link">Back to Virtual Machines directory</a></li>
     </ul>
+{% endoblock %}.
+
+{% block header %}
+ {% block title %} Create new virtual machine {% endoblock %}
+{% endblock %}
+
+{% block content %}
+ <section class="p-2">
+    <form method="post">
+        <div class="mb-3">
+            <label for="vw-id" class="form-label">Name</label>
+            <input type="text" class="form-control" name="vm-id" id="vm-id" aria-describedby="nameHelp" required>
+            <div id="nameHelp" class="form-text"> Choose a unique as a label for you virtual machine</div>
+        </div>
+        <div class="mb-3">
+            <label for="vw-id" class="form-label">Instance Type</label>
+            <select name="instance_type" class="form-control" id="instance_type">
+                {% for instance_type in instance_type %}
+                <option value="{{ instance_type }}" {% if instance_type == curr_instance_type %} selected {% endif %}>
+                    {{instance_type}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="vm-kypair" class="form-label">Public Key</label>
+        </div>
+    </form>
+
+
+ </section>
