@@ -29,9 +29,11 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="vm-kypair" class="form-label">Public Key</label>
+            <label for="vm-keypair" class="form-label">Public Key</label>
+            <textarea class="form-control" name="vm-keypair" id="vm-keypair" rows="5" aria-describedby="keypairHelp"></textarea>
+            <div id="keypairHelp" class="form-text">The public key to use to connect to the VM</div>
         </div>
+        <button type="submit" class="btn btn-primary">Create</button>
     </form>
-
-
  </section>
+ {% endblock %}
